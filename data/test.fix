@@ -1,0 +1,8 @@
+marc_map(100a,name)
+replace_all(name, ',$', '')
+do marc_each()
+  if marc_match(0242, wikidata)
+    marc_map(024a,wikidata_id)
+  end
+end
+retain(_id, name, wikidata_id)
